@@ -38,6 +38,14 @@ As for our code, we can optimize it burning the smallest bootloader that we need
 -Override frequency 128KHz.
 Last but not least, we can also get some code optimization from commands using port manipulations.
 
+## Costs
+
+-Attiny13A: $2.80;
+-5V Laser: $0.90;
+-Buzzer + LDR + 10KOhm resistor + switch button: $0.20;
+
+Total: $3.90.
+
 ## Results
 
 "Sketch uses 166 bytes (16%) of program storage space. Maximum is 1024 bytes.
