@@ -17,11 +17,11 @@ The idea is simple: a laser module gets it's light recepted by a LDR photoresist
 
 At a first glance, one can think about constantly reading the analog signal from the LDR using an ADC capable pin and activating the buzzer if the signal happens to change. There is a better solution for this: we can sleep the Attiny all the time and wake it up when the laser line is interrupted. So we need to use the LDR signal as an external interrupt in our sketch.
 
-Yeah I know, the LDR signal is analog and for an external interrupt we expect a digital signal. But for our little microcontroller friend, any voltage above 3V is seen as logical HIGH and any voltage below 2V is understood as logical LOW. For our practical porposes, when the laser is interrupted, our Attiny will understand an external interruption on the right pin (PB1, according the datasheet).
+Yeah I know, the LDR signal is analog and for an external interrupt we expect a digital signal. But for our little microcontroller friend, any voltage above 3V is seen as logical HIGH and any voltage below 2V is understood as logical LOW. For our practical porposes, when the laser is interrupted, our Attiny will understand an external interruption on the right pin (PB1, according to the datasheet).
 
 ## Optimizing Power Consumption
 
-There are some development decisions that can improve our system's power consuption, such as:
+There are some implementation decisions that can improve our system's power consuption, such as:
 
 -Setting our processor speed to 1.2MHz and overriding the frequency to 128KHz (For programming your attiny uisng 128KHz clock you will need the special Arduino Slow ISP code provided here: https://forum.arduino.cc/index.php?topic=89781.330. Just upload it to your Arduino and change the MOSI/MISO/SCK/RESET pins if you're not using the Uno board.);
 
