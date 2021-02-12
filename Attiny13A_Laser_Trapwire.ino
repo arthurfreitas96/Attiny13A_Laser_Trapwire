@@ -1,6 +1,6 @@
 // Buzzer as output on pin PB0;
-// LDR as external interrupt on pin PB1
-// Button as input_pullup on pin PB2;
+// LDR (+10Kohm resistor) as external interrupt on pin PB1;
+// Button as input_pullup on pin PB2.
 
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
