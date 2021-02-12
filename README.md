@@ -10,6 +10,7 @@ The idea is simple: a laser module gets it's light recepted by a LDR photoresist
 ## Some Remarks
 
 -I used an Arduino Mega to burn the Attiny13A's bootloader and to program it via ISP;
+
 -I'm using the following json: https://raw.githubusercontent.com/sleemanj/optiboot/master/dists/package_gogo_diy_attiny_index.json, in Files->Preferences, in the Aditional Boards Manager URLs. I'm using it's the 'DIY Attiny' core.
 
 ## Hardware Choices
