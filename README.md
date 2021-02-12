@@ -22,27 +22,41 @@ Yeah I know, the LDR signal is analog and for an external interrupt we expect a 
 ## Optimizing Power Consumption
 
 There are some development decisions that can improve our system's power consuption, such as:
+
 -Setting our processor speed to 1.2MHz and overriding the frequency to 128KHz (For programming your attiny uisng 128KHz clock you will need the special Arduino Slow ISP code provided here: https://forum.arduino.cc/index.php?topic=89781.330. Just upload it to your Arduino and change the MOSI/MISO/SCK/RESET pins if you're not using the Uno board.);
+
 -Using a method equivalent to Attiny85's 'power_all_disable();' and closing the BOD CONTROL Register;
+
 -Disabling both ADC and analog comparator.
 
 ## Optimizing the Code
 
 As for our code, we can optimize it burning the smallest bootloader that we need, and in that case we can choose the simplest settings:
+
 -No millis, No tone (without tone, buzzer will be activated with a simple digitalWrite());
+
 -Millis accuracy better or equal 50% error;
+
 -Print support bin only;
+
 -Serial support: Serial duplex: read+write;
+
 -LTO enabled;
+
 -Brown out detection level 2.7V;
+
 -Override clock source internal 128KHz;
+
 -Override frequency 128KHz.
+
 Last but not least, we can also get some code optimization from commands using port manipulations.
 
 ## Costs
 
 -Attiny13A: $2.80;
+
 -5V Laser: $0.90;
+
 -Buzzer + LDR + 10KOhm resistor + switch button: $0.20;
 
 Total: $3.90.
