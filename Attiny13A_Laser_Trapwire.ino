@@ -15,12 +15,14 @@
 bool B; // Stores button status
 
 ISR(PCINT0_vect){ // Interrupt handling
+  cli(); // Disable interrupts while handling event
   PORTB |= (1 << PB0); // Buzzing, PB0 = 1
   while(B){ // Until button is pressed
     B = PINB & 0b00000100; // Implements digitalRead(2) with port manipulation
   }
   B = 1; // Button was pressed
   PORTB &= ~(1 << PB0); // Stop buzzing, PB0 = 0
+  sei(); // Enable interrupts
 }
 
 void setup () {
