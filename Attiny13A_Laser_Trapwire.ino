@@ -26,11 +26,11 @@ ISR(PCINT0_vect){ // Interrupt handling
 void setup () {
   cli(); // Disable interrupts for setup
   PCMSK |= (1 << PCINT1); // Enable Pin PB1 Change Interrupts
-  GIMSK |= (1 << PCIE); // Use PB0 as interrupt pin
+  GIMSK |= (1 << PCIE); // Use PB1 as interrupt pin
   ADCSRA &= ~_BV(ADEN); // ADC off for lower power consumption
   ACSR |= _BV(ACD);         // Disable analog comparator
   DIDR0 |= (1<< AIN1D)|(1 << AIN0D);// Disable analog input buffers
-  DDRB = 0b00000001; // The following two lines set PB0 as OUTPUT and PBB2 as INPUT_PULLUP
+  DDRB = 0b00000001; // The following two lines set PB0 as OUTPUT and PB2 as INPUT_PULLUP
   PORTB = 0b00000100;
   B = 1;
   sei(); // Enable interrupts
